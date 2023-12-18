@@ -79,7 +79,7 @@ namespace SitePustok.Areas.Admin.Controllers
         public async Task<IActionResult> Update(int? Id)
         {
             if (Id == null || Id <= 0) return BadRequest();
-            ViewBag.Tag = new SelectList(_db.Tag, nameof(Tag.Id), nameof(Tag.Name));
+            ViewBag.Tag = _db.Tag;
             var data = await _db.Blog
                 .Include(p => p.BlogTag)
                 .SingleOrDefaultAsync(p => p.Id == Id);
@@ -109,7 +109,10 @@ namespace SitePustok.Areas.Admin.Controllers
             var data = await _db.Blog.FindAsync(Id);
             if (data == null) return NotFound();
             data.Title = vm.Title;
-
+            data.Description = vm.Description;
+            data.AuthorId = vm.AuthorId;
+            data.IsDeleted = vm.IsDeleted;
+            data.Author = vm.Author;
             await _db.SaveChangesAsync();
             TempData["Response"] = true;
             return RedirectToAction(nameof(Index));

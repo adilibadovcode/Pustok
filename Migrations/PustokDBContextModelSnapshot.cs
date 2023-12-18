@@ -45,6 +45,9 @@ namespace SitePustok.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -242,8 +245,8 @@ namespace SitePustok.Migrations
                         {
                             Id = 1,
                             Address = "Sumqayıt , Ceyranbatan",
-                            Email = "adilibadov456@gmail.com",
-                            Logo = "/image/logo.png",
+                            Email = "Adilibadov456@gmail.com",
+                            Logo = "~/image/logo.png",
                             Number = "+994513317139"
                         });
                 });

@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using SitePustok.Contexts;
 using SitePustok.Models;
 using SitePustok.ViewModels.CategoryVM;
+using SitePustok.ViewModels.TagVM;
 
 namespace SitePustok.Areas.Admin.Controllers
 {
@@ -61,6 +62,50 @@ namespace SitePustok.Areas.Admin.Controllers
 			return RedirectToAction(nameof(Index));
 		}
 
+
+        public async Task<IActionResult> Update(int? Id)
+        {
+            if (Id == null || Id <= 0) return BadRequest();
+            var data = await _db.Categories.FindAsync(Id);
+            if (data == null) return NotFound();
+            return View(new CategoryUpdateVM
+            {
+                Id = data.Id,
+                Name = data.Name,
+				ParentCategoryId = data.ParentCategoryId,
+				IsDeleted=data.IsDeleted
+            });
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Update(int? Id, CategoryUpdateVM vm)
+        {
+            if (Id == null || Id <= 0) return BadRequest();
+            if (!ModelState.IsValid)
+            {
+                return View(vm);
+            }
+            var data = await _db.Categories.FindAsync(Id);
+            if (data == null) return NotFound();
+			data.Name = vm.Name;
+			data.ParentCategoryId = vm.ParentCategoryId;
+			data.IsDeleted	= vm.IsDeleted;
+	
+            await _db.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
+        }
+
+		public async Task<IActionResult> Delete(int? Id)
+		{
+			TempData["Respnose"] = false;
+			if (Id == null) return BadRequest();
+			var data = await _db.Categories.FindAsync(Id);
+			if (data == null) return NotFound();
+			_db.Categories.Remove(data);
+			await _db.SaveChangesAsync();
+			TempData["Respnose"] = true;
+			return RedirectToAction(nameof(Index));
+		}
 
 		public IActionResult ShowMoreButton(int page = 1, int pageSize = 5)
 		{

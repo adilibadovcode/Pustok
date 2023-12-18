@@ -1,4 +1,5 @@
-﻿@using SitePustok.Models;
+﻿l
+@using SitePustok.Models;
 @model HomeVM
 @{
     ViewData["Title"] = "Index";
@@ -17,29 +18,11 @@
             .then(data => $("#partialCon").html(data))
                                 });
 
-        $("body").on("click", ".add-cart", function (ev) {
+        $("body").on("click", ".add-cart-btn", function (ev) {
             ev.preventDefault();
             fetch($(this).attr("href"))
                 .then(res => {
                     if (res.ok) {
-                        Command: toastr["success"]("Product added")
-                        toastr.options = {
-                            "closeButton": false,
-                            "debug": false,
-                            "newestOnTop": false,
-                            "progressBar": true,
-                            "positionClass": "toast-top-right",
-                            "preventDuplicates": false,
-                            "onclick": null,
-                            "showDuration": "300",
-                            "hideDuration": "500",
-                            "timeOut": "1000",
-                            "extendedTimeOut": "1000",
-                            "showEasing": "swing",
-                            "hideEasing": "linear",
-                            "showMethod": "fadeIn",
-                            "hideMethod": "fadeOut"
-                        }
                         fetch(window.location.origin + '/Home/GetBasket')
                             .then(res => res.text())
                             .then(data => $("#basket").html(data))

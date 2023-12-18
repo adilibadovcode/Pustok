@@ -29,7 +29,7 @@
 
     <div class="form-group">
         <label asp-for="tagsId">Tags</label>
-        <select class="form-control" asp-for="tagsId" asp-items='@new SelectList(ViewBag.Tag, "Id" , "Name")' multiple>
+        <select class="form-control" asp-for="tagsId" asp-items='@new SelectList(ViewBag.Tag, "Id" , "Name")'>
             <option disabled selected>Select Tag</option>
         </select>
         <span asp-validation-for="tagsId" class="text-danger"></span>
