@@ -15,6 +15,7 @@ public class PustokDBContext : DbContext
     public DbSet<BlogTag> BlogTag { get; set; }
     public DbSet<ProductImage> ProductImage { get; set; }
     public DbSet<Setting> Settings { get; set; }
+    public DbSet<AppUser> AppUsers { get; set; }
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<Setting>()

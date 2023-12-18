@@ -1235,3 +1235,8 @@ C:\Users\Birinci Novbe\Desktop\Pustok\obj\Debug\net6.0\scopedcss\bundle\SitePust
 C:\Users\Birinci Novbe\Desktop\Pustok\obj\Debug\net6.0\SitePustok.csproj.CopyComplete
 C:\Users\Birinci Novbe\Desktop\Pustok\obj\Debug\net6.0\SitePustok.genruntimeconfig.cache
 C:\Users\Birinci Novbe\Desktop\Pustok\obj\Debug\net6.0\ref\SitePustok.dll
+C:\Users\Adil\Desktop\SitePustok\bin\Debug\net6.0\Microsoft.AspNetCore.Cryptography.Internal.dll
+C:\Users\Adil\Desktop\SitePustok\bin\Debug\net6.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+C:\Users\Adil\Desktop\SitePustok\bin\Debug\net6.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+C:\Users\Adil\Desktop\SitePustok\bin\Debug\net6.0\Microsoft.Extensions.Identity.Core.dll
+C:\Users\Adil\Desktop\SitePustok\bin\Debug\net6.0\Microsoft.Extensions.Identity.Stores.dll
